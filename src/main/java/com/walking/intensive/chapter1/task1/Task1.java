@@ -30,9 +30,9 @@ public class Task1 {
             return "Вам " + age + " лет";
         } else if (age % 10 == 1) {
             return "Вам " + age + " год";
-        } else if (age % 10 > 1 && age % 10 < 5) {
+        } else if (age % 10 < 5) {
             return "Вам " + age + " года";
-        }  else if (age % 10 > 4 && age % 10 < 10) {
+        }  else if (age % 10 > 4) {
             return "Вам " + age + " лет";
         }
         return "0 лет";
