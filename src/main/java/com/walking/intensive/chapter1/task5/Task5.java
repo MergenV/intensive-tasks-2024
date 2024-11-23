@@ -12,8 +12,7 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-        double[] result = getMedians(3, 4, 5);//getHeights(12, 13, 5);
-        System.out.println(Arrays.toString(result));
+
     }
 
     /**
@@ -29,8 +28,11 @@ public class Task5 {
         if (a + b < c || b + c < a || c + a < b || a <= 0 || b <= 0 || c <= 0) {
             return -1;
         }
-        double p = (a + b + c) / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        double semiPerimeter = (a + b + c) / 2;
+        return Math.sqrt(semiPerimeter *
+                (semiPerimeter - a) *
+                (semiPerimeter - b) *
+                (semiPerimeter - c));
     }
 
     /**
@@ -54,8 +56,12 @@ public class Task5 {
     }
 
     private static double calculateSquare(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        double semiPerimeter = (a + b + c) / 2;
+
+        return Math.sqrt(semiPerimeter *
+                (semiPerimeter - a) *
+                (semiPerimeter - b) *
+                (semiPerimeter - c));
     }
 
     /**
@@ -146,13 +152,11 @@ public class Task5 {
         }
         double semiPerimeter = (a + b + c) / 2;
 
-        // Площадь треугольника по формуле Герона
         double area = Math.sqrt(semiPerimeter *
                 (semiPerimeter - a) *
                 (semiPerimeter - b) *
                 (semiPerimeter - c));
 
-        // Радиус вписанной окружности
         return area / semiPerimeter;
 
     }
