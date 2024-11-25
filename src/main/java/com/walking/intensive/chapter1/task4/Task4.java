@@ -54,8 +54,8 @@ public class Task4 {
         } else if (discriminant == 0) {
             double x = -b / (2 * a);
             return String.format("Количество решений: 1. Корень: %.0f", x == -0 ? 0 : x);
-        } else {
-            return "Количество решений: 0.";
         }
+        return "Количество решений: 0.";
+
     }
 }
