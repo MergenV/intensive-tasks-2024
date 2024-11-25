@@ -40,7 +40,7 @@ public class Task4 {
                 return c == 0 ? "Бесконечное множество решений." : "Количество решений: 0.";
             }
             double x = -c / b;
-            return "Количество решений: 1. Корень: " + (int) x;
+            return String.format("Количество решений: 1. Корень: %.0f", x);
         }
 
         double discriminant = b * b - 4 * a * c;
@@ -50,10 +50,10 @@ public class Task4 {
             double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
             double min = Math.min(x1, x2);
             double max = Math.max(x1, x2);
-            return "Количество решений: 2. Корни: " + (int) min + ";" + (int) max;
+            return String.format("Количество решений: 2. Корни: %.0f;%.0f", min, max);
         } else if (discriminant == 0) {
             double x = -b / (2 * a);
-            return "Количество решений: 1. Корень: " +  (int) x;
+            return String.format("Количество решений: 1. Корень: %.0f", x == -0 ? 0 : x);
         } else {
             return "Количество решений: 0.";
         }
