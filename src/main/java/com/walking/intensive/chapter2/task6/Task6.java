@@ -34,7 +34,7 @@ public class Task6 {
         if (m <= 0 || n <= 0) {
             return -1;
         }
-        while (m > 0) {
+        while (m != 0) {
             if (m >= n) {
                 m -= n;
             } else {
@@ -59,7 +59,7 @@ public class Task6 {
             return -1;
         }
 
-        while (m > 0 && n > 0) {
+        while (m != 0 && n != 0) {
             if (m >= n) {
                 m %= n;
             } else {
