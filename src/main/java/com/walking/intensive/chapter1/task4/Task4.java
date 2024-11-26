@@ -44,18 +44,18 @@ public class Task4 {
         }
 
         double discriminant = b * b - 4 * a * c;
-
+        if (discriminant < 0) {
+            return "Количество решений: 0.";
+        }
         if (discriminant > 0) {
             double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
             double min = Math.min(x1, x2);
             double max = Math.max(x1, x2);
             return String.format("Количество решений: 2. Корни: %.0f;%.0f", min, max);
-        } else if (discriminant == 0) {
-            double x = -b / (2 * a);
-            return String.format("Количество решений: 1. Корень: %.0f", x == -0 ? 0 : x);
         }
-        return "Количество решений: 0.";
+        double x = -b / (2 * a);
+        return String.format("Количество решений: 1. Корень: %.0f", x == -0 ? 0 : x);
 
     }
 }
