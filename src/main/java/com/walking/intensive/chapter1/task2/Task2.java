@@ -49,20 +49,13 @@ public class Task2 {
         int flatWithEntrance = (flatNumber - 1) % flatsPerEntrance;
         int floor = flatWithEntrance / 4 + 1;
 
-        String location = "";
-        switch (flatNumber % 4) {
-            case 0:
-                location = "справа от лифта, вправо";
-                break;
-            case 1:
-                location = "слева от лифта, влево";
-                break;
-            case 2:
-                location = "слева от лифта, вправо";
-                break;
-            case 3:
-                location = "справа от лифта, влево";
-        }
+        String location = switch (flatNumber % 4) {
+            case 0 -> "справа от лифта, вправо";
+            case 1 -> "слева от лифта, влево";
+            case 2 -> "слева от лифта, вправо";
+            case 3 -> "справа от лифта, влево";
+            default -> "";
+        };
 
 
         return flatNumber + " кв - " + porch + " подъезд, " + floor + " этаж, " + location;
