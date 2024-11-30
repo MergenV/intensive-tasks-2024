@@ -65,7 +65,6 @@ public class Task2 {
             location = "справа от лифта, влево";
         }
         floor = (floor==0)?floorAmount:floor;
-        String s = flatNumber + " кв - " + porch + " подъезд, " + floor + " этаж, " + location;
-        return s;
+        return flatNumber + " кв - " + porch + " подъезд, " + floor + " этаж, " + location;
     }
 }
