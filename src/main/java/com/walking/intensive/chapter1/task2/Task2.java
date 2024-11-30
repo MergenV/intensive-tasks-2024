@@ -34,7 +34,7 @@ package com.walking.intensive.chapter1.task2;
 public class Task2 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(-10, -3, 1));
+        System.out.println(getFlatLocation(10, 3, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -42,29 +42,29 @@ public class Task2 {
         if (floorAmount < 0 || entranceAmount <= 0 || flatNumber < 0 || flatNumber > floorAmount * entranceAmount * 4) {
             return "Такой квартиры не существует";
         }
-        int flatNum = flatNumber;
-        int porch = 0, floor = 0;
-        while (flatNum > 0) {
-            flatNum -= floorAmount * 4;
-            porch++;
+
+        int flatsPerEntrance = floorAmount * 4;
+        int porch = (flatNumber - 1) / flatsPerEntrance + 1;
+
+        int flatWithEntrance = (flatNumber - 1) % flatsPerEntrance;
+        int floor = flatWithEntrance / 4 + 1;
+
+        String location = "";
+        switch (flatNumber % 4) {
+            case 0:
+                location = "справа от лифта, вправо";
+                break;
+            case 1:
+                location = "слева от лифта, влево";
+                break;
+            case 2:
+                location = "слева от лифта, вправо";
+                break;
+            case 3:
+                location = "справа от лифта, влево";
         }
-        flatNum = flatNumber % (floorAmount * 4);
-        while (flatNum > 0) {
-            flatNum -= 4;
-            floor++;
-        }
-        String location;
-        int num = flatNumber % 4;
-        if (num == 0) {
-            location = "справа от лифта, вправо";
-        } else if (num == 1) {
-            location = "слева от лифта, влево";
-        } else if (num == 2) {
-            location = "слева от лифта, вправо";
-        } else {
-            location = "справа от лифта, влево";
-        }
-        floor = (floor == 0) ? floorAmount : floor;
+
+
         return flatNumber + " кв - " + porch + " подъезд, " + floor + " этаж, " + location;
     }
 }
